@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Head *)",
+      "PowerShell(npm *)",
+      "PowerShell(node --version; git --version)",
+      "PowerShell(claude mcp *)",
+      "PowerShell(npx playwright install --with-deps chromium 2>&1 | Select-Object -Last 10)"
+    ]
+  }
+}

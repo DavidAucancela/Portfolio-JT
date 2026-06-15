@@ -1,0 +1,32 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.svelte';
+import Hero from '../../components/Hero.svelte';
+import About from '../../components/About.svelte';
+import Experience from '../../components/Experience.svelte';
+import Services from '../../components/Services.svelte';
+import Projects from '../../components/Projects.svelte';
+import Certifications from '../../components/Certifications.svelte';
+import Skills from '../../components/Skills.svelte';
+import Contact from '../../components/Contact.svelte';
+import Footer from '../../components/Footer.svelte';
+import { t } from '../../i18n/translations';
+
+const lang = 'en';
+const texts = t(lang);
+---
+
+<Layout title={texts.meta.title} description={texts.meta.description} lang={lang}>
+  <Nav lang={lang} t={texts.nav} client:load transition:persist="nav" />
+  <main>
+    <Hero t={texts.hero} lang={lang} />
+    <About t={texts.about} />
+    <Experience t={texts.experience} />
+    <Services t={texts.services} lang={lang} />
+    <Projects t={texts.projects} />
+    <Certifications t={texts.certifications} />
+    <Skills t={texts.skills} />
+    <Contact t={texts.contact} client:load />
+  </main>
+  <Footer lang={lang} />
+</Layout>
