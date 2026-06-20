@@ -15,7 +15,19 @@
       "Bash(git checkout *)",
       "Bash(git add *)",
       "Bash(git commit -q -m ' *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(npx -y sharp-cli --version)",
+      "Bash(npx -y sharp-cli -i favicon.svg -o apple-touch-icon.png resize 180 180)",
+      "Bash(npx -y sharp-cli -i favicon.svg -o favicon-256.png resize 256 256)",
+      "Bash(npx -y png-to-ico favicon-256.png)",
+      "Bash(rm -f favicon-256.png)",
+      "Bash(npx -y png-to-ico favicon-48.png)",
+      "Bash(echo \"exit=$?\")",
+      "Read(//tmp/**)",
+      "Bash(npx -y sharp-cli -i favicon.svg -o favicon-16.png resize 16 16)",
+      "Bash(npx -y sharp-cli -i favicon.svg -o favicon-32.png resize 32 32)",
+      "Bash(npx -y png-to-ico favicon-16.png favicon-32.png)",
+      "Bash(node -e ' *)"
     ]
   }
 }

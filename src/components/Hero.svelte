@@ -149,8 +149,8 @@
   .photo-side {
     position: relative;
     flex-shrink: 0;
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -158,8 +158,8 @@
 
   .blob {
     position: absolute;
-    width: 340px;
-    height: 340px;
+    width: 460px;
+    height: 460px;
     background: rgba(157, 92, 245, 0.22);
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
     animation: morphBlob 10s ease-in-out infinite;
@@ -168,8 +168,8 @@
   }
 
   .blob-2 {
-    width: 260px;
-    height: 260px;
+    width: 350px;
+    height: 350px;
     background: rgba(214, 36, 140, 0.12);
     animation: morphBlob 14s ease-in-out infinite reverse;
     animation-delay: -4s;
@@ -184,11 +184,11 @@
   }
 
   .photo-frame {
-    width: 260px;
-    height: 260px;
+    width: 350px;
+    height: 350px;
     border-radius: 50%;
-    border: 3px solid rgba(255, 255, 255, 0.28);
-    padding: 5px;
+    border: 4px solid rgba(255, 255, 255, 0.28);
+    padding: 6px;
     background: rgba(255, 255, 255, 0.07);
     position: relative;
     z-index: 1;
@@ -240,14 +240,14 @@
 
     .photo-side {
       order: -1;
-      width: 220px;
-      height: 220px;
+      width: 280px;
+      height: 280px;
       margin-inline: auto;
     }
 
-    .blob { width: 240px; height: 240px; }
-    .blob-2 { width: 180px; height: 180px; }
-    .photo-frame { width: 190px; height: 190px; }
+    .blob { width: 300px; height: 300px; }
+    .blob-2 { width: 230px; height: 230px; }
+    .photo-frame { width: 250px; height: 250px; }
 
     .subtitle { margin-inline: auto; }
     .location { text-align: center; }
