@@ -5,9 +5,11 @@
 
   // Web3Forms: obtén tu access key gratis en https://web3forms.com (entra tu email)
   // No es secreta (viaja en el cliente), por eso va aquí directamente.
-  const WEB3FORMS_ACCESS_KEY = 'TU_ACCESS_KEY_AQUI';
+  const WEB3FORMS_ACCESS_KEY = 'a4f8fda7-17e2-45b2-b110-827bc95c752b';
 
   let formData = $state({ name: '', email: '', subject: '', message: '' });
+  // Honeypot anti-spam: los humanos lo dejan vacío; si un bot lo llena, Web3Forms descarta el envío
+  let botcheck = $state('');
   let submitted = $state(false);
   let submitting = $state(false);
   let error = $state('');
@@ -30,6 +32,7 @@
           subject: formData.subject || 'Nuevo mensaje desde el portfolio',
           message: formData.message,
           from_name: 'Portfolio Jacqueline Tene',
+          botcheck,
         }),
       });
       const data = await res.json();
@@ -94,6 +97,16 @@
           </div>
         {:else}
           <form onsubmit={handleSubmit} novalidate out:fade={{ duration: 200 }}>
+            <!-- Honeypot oculto: invisible para humanos, trampa para bots -->
+            <input
+              type="text"
+              name="botcheck"
+              bind:value={botcheck}
+              tabindex="-1"
+              autocomplete="off"
+              aria-hidden="true"
+              class="honeypot"
+            />
             <div class="form-group">
               <input
                 type="text"
@@ -284,6 +297,15 @@
     font-size: 0.85rem;
     color: #ffd2d2;
     text-align: center;
+  }
+
+  .honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
   }
 
   /* Success */

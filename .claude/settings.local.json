@@ -13,7 +13,9 @@
       "Bash(rm foto_principal)",
       "Bash(ls -1 foto_principal*)",
       "Bash(git checkout *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit -q -m ' *)",
+      "Bash(git push *)"
     ]
   }
 }
