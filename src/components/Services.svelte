@@ -47,13 +47,13 @@
 
   .bg-blob-1 {
     width: 700px; height: 700px;
-    background: radial-gradient(circle, rgba(45,106,79,0.07) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(124,58,237,0.07) 0%, transparent 70%);
     top: -200px; right: -150px;
   }
 
   .bg-blob-2 {
     width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(201,152,42,0.06) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(214,36,140,0.06) 0%, transparent 70%);
     bottom: -150px; left: -100px;
   }
 

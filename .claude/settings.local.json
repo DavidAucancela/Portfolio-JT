@@ -5,7 +5,15 @@
       "PowerShell(npm *)",
       "PowerShell(node --version; git --version)",
       "PowerShell(claude mcp *)",
-      "PowerShell(npx playwright install --with-deps chromium 2>&1 | Select-Object -Last 10)"
+      "PowerShell(npx playwright install --with-deps chromium 2>&1 | Select-Object -Last 10)",
+      "Bash(npm run *)",
+      "Bash(npm install *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:4321/es)",
+      "Bash(curl -s http://localhost:4321/es)",
+      "Bash(rm foto_principal)",
+      "Bash(ls -1 foto_principal*)",
+      "Bash(git checkout *)",
+      "Bash(git add *)"
     ]
   }
 }

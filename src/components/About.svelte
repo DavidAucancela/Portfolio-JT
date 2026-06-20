@@ -14,13 +14,21 @@
         <p>{t.p1}</p>
         <p>{t.p2}</p>
 
-        <div class="values">
-          <p class="values-label">{t.values_title}</p>
-          <div class="values-list">
-            {#each t.values as value}
-              <span class="value-chip">{value}</span>
+        <div class="knowledge">
+          <p class="knowledge-label">{t.knowledge_title}</p>
+          <ul class="knowledge-list">
+            {#each t.knowledge as item}
+              <li class="knowledge-item">
+                <span class="knowledge-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="knowledge-text">{item}</span>
+              </li>
             {/each}
-          </div>
+          </ul>
         </div>
       </div>
 
@@ -30,26 +38,9 @@
           <span class="stat-label">{isEn ? 'Years of experience' : 'Años de experiencia'}</span>
         </div>
 
-        <div class="stat-card accent">
-          <span class="stat-number" data-count="35" data-suffix="%">35%</span>
-          <span class="stat-label">{isEn ? 'Occupancy increase' : 'Aumento de ocupación'}</span>
-        </div>
-
-        <div class="stat-card wide">
+        <div class="stat-card">
           <span class="stat-number" data-count="50" data-suffix="+">50+</span>
           <span class="stat-label">{isEn ? 'People coordinated per trip' : 'Personas por grupo coordinadas'}</span>
-        </div>
-
-        <div class="map-decoration" aria-hidden="true">
-          <svg viewBox="0 0 200 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M100 20 C60 20 30 55 30 95 C30 135 70 160 100 160 C130 160 170 135 170 95 C170 55 140 20 100 20Z"
-              fill="var(--primary-pale)" stroke="var(--primary-light)" stroke-width="1.5"/>
-            <circle cx="100" cy="95" r="9" fill="var(--primary)"/>
-            <circle cx="100" cy="95" r="18" fill="var(--primary)" opacity="0.18"/>
-            <circle cx="100" cy="95" r="28" fill="var(--primary)" opacity="0.07"/>
-            <text x="100" y="134" text-anchor="middle" font-size="11"
-              fill="var(--primary-dark)" font-family="Inter, sans-serif" font-weight="600">Ecuador</text>
-          </svg>
         </div>
       </div>
     </div>
@@ -68,7 +59,7 @@
     content: '';
     position: absolute;
     width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(45,106,79,0.05) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(124,58,237,0.05) 0%, transparent 70%);
     top: -200px; right: -100px;
     border-radius: 50%;
     pointer-events: none;
@@ -78,7 +69,7 @@
     display: grid;
     grid-template-columns: 1fr 360px;
     gap: 5rem;
-    align-items: start;
+    align-items: stretch;
     position: relative;
     z-index: 1;
   }
@@ -89,60 +80,86 @@
     margin-bottom: 1.35rem;
   }
 
-  .values {
+  .knowledge {
     margin-top: 2.25rem;
     padding-top: 2.25rem;
     border-top: 1px solid var(--border);
   }
 
-  .values-label {
+  .knowledge-label {
     font-weight: 700;
     font-size: var(--text-xs);
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--text-muted);
-    margin-bottom: 0.85rem;
+    margin-bottom: 1.25rem;
   }
 
-  .values-list {
+  .knowledge-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem 1.25rem;
+  }
+
+  .knowledge-item {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .value-chip {
-    display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
-    padding: 0.45rem 1rem;
-    background: var(--primary-pale);
-    color: var(--primary-dark);
-    border-radius: var(--radius-full);
+    gap: 0.7rem;
     font-size: var(--text-sm);
     font-weight: 600;
-    border: 1px solid rgba(45,106,79,0.12);
+    color: var(--text);
+    line-height: 1.3;
   }
 
-  .value-chip::before {
-    content: '✦';
-    font-size: 0.55rem;
-    color: var(--accent);
+  .knowledge-icon {
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    display: grid;
+    place-items: center;
+    border-radius: var(--radius-full);
+    background: var(--primary-pale);
+    color: var(--primary);
+    transition: background 0.25s, color 0.25s, transform 0.25s;
+  }
+
+  .knowledge-icon svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .knowledge-item:hover .knowledge-icon {
+    background: var(--primary);
+    color: #fff;
+    transform: scale(1.08);
+  }
+
+  @media (max-width: 480px) {
+    .knowledge-list {
+      grid-template-columns: 1fr;
+    }
   }
 
   /* ── Stats ── */
   .visual-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    height: 100%;
   }
 
   .stat-card {
+    flex: 1;
     background: var(--bg);
     border-radius: var(--radius);
-    padding: 1.75rem 1.5rem;
+    padding: 2.5rem 2rem;
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    justify-content: center;
+    gap: 0.6rem;
     border: 1px solid var(--border);
     transition: box-shadow 0.25s, transform 0.25s;
   }
@@ -152,19 +169,9 @@
     transform: translateY(-3px);
   }
 
-  .stat-card.wide {
-    grid-column: 1 / -1;
-  }
-
-  .stat-card.accent {
-    background: var(--gradient-primary);
-    border-color: transparent;
-    box-shadow: var(--shadow-dark);
-  }
-
   .stat-number {
     font-family: var(--font-heading);
-    font-size: clamp(2.8rem, 4.5vw, 4rem);
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
     font-weight: 700;
     line-height: 1;
     background: var(--gradient-text);
@@ -173,43 +180,11 @@
     background-clip: text;
   }
 
-  .stat-card.accent .stat-number {
-    background: linear-gradient(135deg, #fff 0%, var(--accent-light) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-  }
-
-  /* En el wide card, el número es un poco más grande */
-  .stat-card.wide .stat-number {
-    font-size: clamp(3rem, 5vw, 4.5rem);
-  }
-
   .stat-label {
-    font-size: var(--text-sm);
+    font-size: var(--text-base);
     color: var(--text-muted);
     font-weight: 500;
     line-height: 1.4;
-  }
-
-  .stat-card.accent .stat-label {
-    color: rgba(255, 255, 255, 0.78);
-  }
-
-  .map-decoration {
-    grid-column: 1 / -1;
-    background: var(--bg);
-    border-radius: var(--radius);
-    border: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 130px;
-    overflow: hidden;
-  }
-
-  .map-decoration svg {
-    height: 106px;
-    width: auto;
   }
 
   @media (max-width: 900px) {
@@ -218,14 +193,15 @@
       gap: 3rem;
     }
     .visual-col {
-      grid-template-columns: repeat(3, 1fr);
+      flex-direction: row;
+      height: auto;
     }
-    .stat-card.wide { grid-column: auto; }
-    .map-decoration { display: none; }
+    .stat-card {
+      padding: 2rem 1.5rem;
+    }
   }
 
   @media (max-width: 560px) {
-    .visual-col { grid-template-columns: 1fr 1fr; }
-    .stat-card.wide { grid-column: 1 / -1; }
+    .visual-col { flex-direction: column; }
   }
 </style>

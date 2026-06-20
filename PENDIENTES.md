@@ -1,6 +1,8 @@
 # PENDIENTES — Portfolio Jacqueline Tene
 
 ## Críticos (el portfolio no funciona sin esto)
+background purple 
+
 
 | # | Tarea | Dónde |
 |---|---|---|

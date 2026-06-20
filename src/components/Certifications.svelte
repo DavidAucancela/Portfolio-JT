@@ -9,6 +9,18 @@
       <h2 class="section-title">{t.title}</h2>
     </div>
 
+    <div class="edu-block" data-reveal-stagger>
+      <h3 class="col-title obtained">{t.education_title}</h3>
+      <div class="edu-list">
+        {#each t.education as edu}
+          <div class="edu-item">
+            <p class="edu-degree">{edu.degree}</p>
+            <p class="cert-meta">{edu.org} · {edu.period}</p>
+          </div>
+        {/each}
+      </div>
+    </div>
+
     <div class="cert-grid" data-reveal-stagger>
       <div class="cert-col">
         <h3 class="col-title obtained">{t.obtained}</h3>
@@ -48,6 +60,33 @@
 <style>
   .bg-white {
     background: var(--surface);
+  }
+
+  .edu-block {
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .edu-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+
+  .edu-item {
+    padding: 1.25rem 1.5rem;
+    background: var(--bg);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--primary);
+  }
+
+  .edu-degree {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.3rem;
   }
 
   .cert-grid {
