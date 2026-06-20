@@ -27,7 +27,8 @@
       "Bash(npx -y sharp-cli -i favicon.svg -o favicon-16.png resize 16 16)",
       "Bash(npx -y sharp-cli -i favicon.svg -o favicon-32.png resize 32 32)",
       "Bash(npx -y png-to-ico favicon-16.png favicon-32.png)",
-      "Bash(node -e ' *)"
+      "Bash(node -e ' *)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }

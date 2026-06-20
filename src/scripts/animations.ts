@@ -7,6 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 let lenis: Lenis | null = null;
 let tickerCb: ((time: number) => void) | null = null;
 let abortMagnetic: AbortController | null = null;
+let abortInteraction: AbortController | null = null;
 
 // ─── Inicializar todo ──────────────────────────────────────────────────────
 function init() {
@@ -19,6 +20,19 @@ function init() {
   tickerCb = (time: number) => lenis!.raf(time * 1000);
   gsap.ticker.add(tickerCb);
   gsap.ticker.lagSmoothing(0);
+
+  // Fix click-durante-inercia: si el smooth-scroll sigue en movimiento, el
+  // contenido se desplaza entre mousedown y mouseup y el navegador no dispara
+  // el click. Al pulsar, fijamos el scroll en su posición actual para cortar la
+  // inercia y que el click registre a la primera.
+  abortInteraction = new AbortController();
+  window.addEventListener(
+    'pointerdown',
+    () => {
+      lenis?.scrollTo(lenis.scroll, { immediate: true, force: true });
+    },
+    { signal: abortInteraction.signal, passive: true }
+  );
 
   // ── Capa 3a: Parallax en el hero-bg ────────────────────────────────────
   const heroBg = document.querySelector<HTMLElement>('.hero-bg');
@@ -168,6 +182,9 @@ function initMagneticButtons() {
 function destroy() {
   abortMagnetic?.abort();
   abortMagnetic = null;
+
+  abortInteraction?.abort();
+  abortInteraction = null;
 
   if (tickerCb) {
     gsap.ticker.remove(tickerCb);
