@@ -1,47 +1,47 @@
 :root {
   /* ─── Superficies ─────────────────────────────────────────────────────── */
-  --bg: #F5F2EC;
+  --bg: #F7F3FB;
   --surface: #ffffff;
-  --surface-2: #EAE6DF;
+  --surface-2: #ECE4F5;
   --surface-glass: rgba(255, 255, 255, 0.72);
-  --surface-tinted: rgba(216, 243, 220, 0.4);
+  --surface-tinted: rgba(237, 228, 255, 0.5);
 
   /* ─── Paleta primaria ────────────────────────────────────────────────── */
-  --primary: #2D6A4F;
-  --primary-light: #40916C;
-  --primary-dark: #1B4332;
-  --primary-pale: #D8F3DC;
+  --primary: #7C3AED;
+  --primary-light: #9D5CF5;
+  --primary-dark: #4C1D95;
+  --primary-pale: #EDE4FF;
 
   /* ─── Acento ─────────────────────────────────────────────────────────── */
-  --accent: #C9982A;
-  --accent-light: #F0D080;
+  --accent: #D6248C;
+  --accent-light: #F49AD0;
 
   /* ─── Texto ──────────────────────────────────────────────────────────── */
-  --text: #1A1A1A;
-  --text-muted: #586B60;
-  --ink-light: #3D4A3E;
-  --text-on-dark: #F0EDE7;
+  --text: #1A1320;
+  --text-muted: #6B6075;
+  --ink-light: #463C52;
+  --text-on-dark: #F1ECF7;
 
   /* ─── Bordes ─────────────────────────────────────────────────────────── */
-  --border: #DDD9D1;
+  --border: #E1D9EC;
   --border-glass: rgba(255, 255, 255, 0.85);
 
   /* ─── Sombras coloreadas (no negras) ─────────────────────────────────── */
-  --shadow-sm:     0 2px 8px rgba(45, 106, 79, 0.07);
-  --shadow:        0 6px 28px rgba(45, 106, 79, 0.11);
-  --shadow-lg:     0 18px 60px rgba(45, 106, 79, 0.17);
-  --shadow-accent: 0 8px 32px rgba(201, 152, 42, 0.28);
-  --shadow-dark:   0 24px 64px rgba(27, 67, 50, 0.24);
+  --shadow-sm:     0 2px 8px rgba(124, 58, 237, 0.07);
+  --shadow:        0 6px 28px rgba(124, 58, 237, 0.13);
+  --shadow-lg:     0 18px 60px rgba(124, 58, 237, 0.19);
+  --shadow-accent: 0 8px 32px rgba(214, 36, 140, 0.28);
+  --shadow-dark:   0 24px 64px rgba(76, 29, 149, 0.26);
 
   /* ─── Gradientes ─────────────────────────────────────────────────────── */
   --gradient-primary: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
   --gradient-text:    linear-gradient(135deg, var(--primary-dark) 10%, var(--accent) 100%);
   --gradient-accent:  linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
   --gradient-mesh:
-    radial-gradient(ellipse at 14% 55%, rgba(27,67,50,0.93) 0%, transparent 52%),
-    radial-gradient(ellipse at 84% 14%, rgba(64,145,108,0.62) 0%, transparent 48%),
-    radial-gradient(ellipse at 58% 88%, rgba(45,106,79,0.72) 0%, transparent 54%),
-    #1B4332;
+    radial-gradient(ellipse at 14% 55%, rgba(76,29,149,0.93) 0%, transparent 52%),
+    radial-gradient(ellipse at 84% 14%, rgba(157,92,245,0.62) 0%, transparent 48%),
+    radial-gradient(ellipse at 58% 88%, rgba(124,58,237,0.72) 0%, transparent 54%),
+    #3B0A6B;
 
   /* ─── Tipografía ─────────────────────────────────────────────────────── */
   --font-heading: 'Playfair Display', Georgia, serif;

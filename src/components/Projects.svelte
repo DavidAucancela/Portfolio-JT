@@ -40,7 +40,7 @@
     content: '';
     position: absolute;
     width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(45,106,79,0.05) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(124,58,237,0.05) 0%, transparent 70%);
     bottom: -100px; right: -100px;
     border-radius: 50%;
     pointer-events: none;
@@ -81,7 +81,7 @@
     font-weight: 700;
     font-style: italic;
     color: transparent;
-    -webkit-text-stroke: 1.5px rgba(45,106,79,0.35);
+    -webkit-text-stroke: 1.5px rgba(124,58,237,0.35);
     line-height: 1;
     user-select: none;
     transition: background 0.28s, -webkit-text-stroke 0.28s;

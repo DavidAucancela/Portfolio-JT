@@ -3,17 +3,46 @@
 
   let { t }: { t: any } = $props();
 
+  // Web3Forms: obtén tu access key gratis en https://web3forms.com (entra tu email)
+  // No es secreta (viaja en el cliente), por eso va aquí directamente.
+  const WEB3FORMS_ACCESS_KEY = 'TU_ACCESS_KEY_AQUI';
+
   let formData = $state({ name: '', email: '', subject: '', message: '' });
   let submitted = $state(false);
   let submitting = $state(false);
+  let error = $state('');
 
   async function handleSubmit(e: SubmitEvent) {
     e.preventDefault();
     submitting = true;
-    // Connect to Formspree or similar: replace with real fetch() call
-    await new Promise((r) => setTimeout(r, 900));
-    submitting = false;
-    submitted = true;
+    error = '';
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject || 'Nuevo mensaje desde el portfolio',
+          message: formData.message,
+          from_name: 'Portfolio Jacqueline Tene',
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        submitted = true;
+      } else {
+        error = t.form_error;
+      }
+    } catch {
+      error = t.form_error;
+    } finally {
+      submitting = false;
+    }
   }
 </script>
 
@@ -101,6 +130,9 @@
             <button type="submit" class="btn btn-white" disabled={submitting}>
               {submitting ? '...' : t.form_submit}
             </button>
+            {#if error}
+              <p class="form-error" role="alert">{error}</p>
+            {/if}
           </form>
         {/if}
       </div>
@@ -245,6 +277,13 @@
   button:disabled {
     opacity: 0.65;
     cursor: not-allowed;
+  }
+
+  .form-error {
+    margin-top: 0.25rem;
+    font-size: 0.85rem;
+    color: #ffd2d2;
+    text-align: center;
   }
 
   /* Success */

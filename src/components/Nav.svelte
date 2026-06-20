@@ -8,8 +8,10 @@
 
   $effect(() => {
     const onScroll = () => {
-      scrolled = window.scrollY > 40;
+      // Oculto sobre el hero; aparece al acercarse a la siguiente sección
+      scrolled = window.scrollY > window.innerHeight * 0.8;
     };
+    onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   });
@@ -63,10 +65,20 @@
     height: 64px;
     display: flex;
     align-items: center;
-    transition: background 0.3s ease, box-shadow 0.3s ease;
+    /* Oculto por defecto (sobre el hero); se revela al hacer scroll */
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: background 0.3s ease, box-shadow 0.3s ease,
+      transform 0.35s ease, opacity 0.35s ease, visibility 0.35s ease;
   }
 
   nav.scrolled {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
     background: rgba(255, 255, 255, 0.97);
     backdrop-filter: blur(8px);
     box-shadow: 0 1px 0 var(--border);

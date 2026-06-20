@@ -9,7 +9,7 @@
         <span class="section-eyebrow">{t.eyebrow}</span>
         <h2 class="section-title">{t.title}</h2>
       </div>
-      <a href="/cv-jacqueline-tene.pdf" download class="btn btn-outline">
+      <a href="/Tene_Jacqueline-CV.pdf" download class="btn btn-outline">
         ↓ {t.download_cv}
       </a>
     </div>

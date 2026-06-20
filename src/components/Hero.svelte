@@ -9,18 +9,16 @@
   <div class="container">
     <div class="hero-content">
       <div class="text-side">
-        <span class="available-badge">
-          <span class="dot"></span>
-          {t.available}
-        </span>
-
         <p class="greeting">{t.greeting}</p>
         <h1>{t.name}</h1>
         <p class="title">{t.title}</p>
         <p class="subtitle">{t.subtitle}</p>
+        <p class="location" aria-label="Ubicación">
+          <span aria-hidden="true">📍</span> {t.location}
+        </p>
 
         <div class="ctas">
-          <a href="/cv-jacqueline-tene.pdf" download class="btn btn-white">
+          <a href="/Tene_Jacqueline-CV.pdf" download class="btn btn-white">
             ↓ {t.cta_cv}
           </a>
           <a href={`/${lang}#services`} class="btn btn-outline-white">
@@ -35,10 +33,13 @@
         <div class="blob blob-2" aria-hidden="true"></div>
 
         <div class="photo-frame">
-          <!-- Reemplazar por <img> cuando haya foto real -->
-          <div class="photo-placeholder" aria-label="Foto de Jacqueline Tene">
-            <span>JT</span>
-          </div>
+          <img
+            src="/foto_principal.png"
+            alt="Jacqueline Tene"
+            class="photo"
+            width="1023"
+            height="1537"
+          />
         </div>
       </div>
     </div>
@@ -89,36 +90,6 @@
     color: #fff;
   }
 
-  .available-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    border-radius: var(--radius-full);
-    padding: 0.38rem 1rem;
-    font-size: var(--text-xs);
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    color: rgba(255, 255, 255, 0.88);
-    margin-bottom: 1.75rem;
-    backdrop-filter: blur(8px);
-  }
-
-  .dot {
-    width: 7px;
-    height: 7px;
-    background: #4ade80;
-    border-radius: 50%;
-    box-shadow: 0 0 6px #4ade80;
-    animation: pulse 2.2s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50%       { opacity: 0.55; transform: scale(0.8); }
-  }
-
   .greeting {
     font-size: var(--text-lg);
     color: rgba(255, 255, 255, 0.65);
@@ -128,11 +99,14 @@
   }
 
   h1 {
+    font-family: var(--font-body);
     font-size: var(--text-display);
-    font-style: italic;
-    font-weight: 700;
+    font-style: normal;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
     color: #fff;
-    line-height: 1.05;
+    line-height: 0.95;
     margin-bottom: 0.6rem;
     /* Sutil text-shadow para dar profundidad */
     text-shadow: 0 4px 32px rgba(0,0,0,0.25);
@@ -153,8 +127,16 @@
     color: rgba(255, 255, 255, 0.75);
     max-width: 460px;
     line-height: 1.75;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1rem;
     font-weight: 300;
+  }
+
+  .location {
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+    letter-spacing: 0.01em;
   }
 
   .ctas {
@@ -178,7 +160,7 @@
     position: absolute;
     width: 340px;
     height: 340px;
-    background: rgba(64, 145, 108, 0.22);
+    background: rgba(157, 92, 245, 0.22);
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
     animation: morphBlob 10s ease-in-out infinite;
     filter: blur(2px);
@@ -188,7 +170,7 @@
   .blob-2 {
     width: 260px;
     height: 260px;
-    background: rgba(201, 152, 42, 0.12);
+    background: rgba(214, 36, 140, 0.12);
     animation: morphBlob 14s ease-in-out infinite reverse;
     animation-delay: -4s;
     filter: blur(4px);
@@ -214,19 +196,13 @@
                 var(--shadow-dark);
   }
 
-  .photo-placeholder {
+  .photo {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: linear-gradient(135deg, rgba(64,145,108,0.4) 0%, rgba(27,67,50,0.6) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-heading);
-    font-size: 3.8rem;
-    font-style: italic;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.75);
+    object-fit: cover;
+    object-position: center top;
+    display: block;
   }
 
   /* ── Scroll hint ── */
@@ -274,7 +250,7 @@
     .photo-frame { width: 190px; height: 190px; }
 
     .subtitle { margin-inline: auto; }
+    .location { text-align: center; }
     .ctas { justify-content: center; }
-    .available-badge { margin-inline: auto; }
   }
 </style>
